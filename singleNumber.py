@@ -10,3 +10,5 @@ class Solution:
             occurance = nums.count(nums[i])
             if occurance == 1:
                 return nums[i]
+            
+            
