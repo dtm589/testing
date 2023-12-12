@@ -1,21 +1,21 @@
-class LinkedList:
-    def add_to_head(self, node):
+class LLQueue:
+    def remove_from_head(self):
         if self.head is None:
-            self.head = node
-            return
-        node.next = self.head
-        self.head = node
+            return None
+        temp = self.head
+        self.head = self.head.next
+        return temp
 
     def add_to_tail(self, node):
         if self.head is None:
             self.head = node
+            self.tail = node
             return
-        last_node = None
-        for current_node in self:
-            last_node = current_node
-        last_node.set_next(node)
+        self.tail.next = node
+        self.tail = node
 
     def __init__(self):
+        self.tail = None
         self.head = None
 
     def __iter__(self):
@@ -28,7 +28,7 @@ class LinkedList:
         nodes = []
         for node in self:
             nodes.append(node.val)
-        return " -> ".join(nodes)
+        return " <- ".join(nodes)
 
 
 class Node:
