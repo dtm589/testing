@@ -62,3 +62,19 @@ class BSTNode:
             self.right.inorder(visited)
 
         return visited
+    
+    
+
+    def exists(self, val):
+        if self.val == val:
+            return True
+        if self.left != None:
+            doubleLeft = self.left.exists(val)
+            if doubleLeft == True:
+                return True
+        if self.right != None:
+            doubleRight = self.right.exists(val)
+            if doubleRight == True:
+                return True
+
+        return False
