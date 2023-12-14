@@ -22,3 +22,16 @@ class BSTNode:
             self.right.insert(val)
             return
         self.right = BSTNode(val)
+
+
+    def get_min(self):
+        min = self
+        while min.left != None:
+            min = min.left
+        return min.val
+
+    def get_max(self):
+        max = self
+        while max.right != None:
+            max = max.right
+        return max.val
