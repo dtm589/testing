@@ -35,3 +35,11 @@ class BSTNode:
         while max.right != None:
             max = max.right
         return max.val
+    
+    def preorder(self, visited):
+        visited.append(self.val)
+        if self.left != None:
+            self.left.preorder(visited)
+        if self.right != None:
+            self.right.preorder(visited)
+        return visited
