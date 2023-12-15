@@ -19,3 +19,10 @@ class HashMap:
     def insert(self, key, value):
         index = self.key_to_index(key)
         self.hashmap[index] = (key,value)
+        
+    def get(self, key):
+        index = self.key_to_index(key)
+        if self.hashmap[index]:
+            return self.hashmap[index][1]
+        else:
+            raise Exception("sorry, key not found")
