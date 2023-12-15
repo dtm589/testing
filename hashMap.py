@@ -6,7 +6,6 @@ class HashMap:
         index = unicode % len(self.hashmap)
         return index
         
-
     def __init__(self, size):
         self.hashmap = [None for i in range(size)]
 
@@ -16,3 +15,7 @@ class HashMap:
             if v != None:
                 buckets.append(v)
         return str(buckets)
+
+    def insert(self, key, value):
+        index = self.key_to_index(key)
+        self.hashmap[index] = (key,value)
