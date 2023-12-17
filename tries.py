@@ -18,6 +18,25 @@ class Trie:
             return True
         else:
             return False
+        
+    def words_with_prefix(self, prefix):
+        result = []
+        current = self.root
+        for letter in prefix:
+            if letter in current:
+                current = current[letter]
+            else:
+                return result
+        final_result = self.search_level(current, prefix, result)
+        return final_result
+
+    def search_level(self, cur, cur_prefix, words):
+        if self.end_symbol in cur:
+            words.append(cur_prefix)
+        for key in sorted(cur):
+            if key != self.end_symbol:
+                self.search_level(cur[key], cur_prefix + key, words)   
+        return words
 
 
     def __init__(self):
