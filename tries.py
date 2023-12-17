@@ -38,6 +38,18 @@ class Trie:
                 self.search_level(cur[key], cur_prefix + key, words)   
         return words
 
+    def find_matches(self, document):
+        final_set = set()
+        for i in range(len(document)):
+            level = self.root
+            for j in range(i, len(document)):
+                ch = document[j]
+                if ch not in level:
+                    break 
+                level = level[ch]
+                if self.end_symbol in level:
+                    final_set.add(document[i : j + 1])
+        return final_set
 
     def __init__(self):
         self.root = {}
