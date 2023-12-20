@@ -1,9 +1,13 @@
 class Graph:
-    def __init__(self, num_vertices):
-        self.graph = []
-        for num in range(num_vertices):
-            self.graph.append([False] * num_vertices)
-    
+    def __init__(self):
+        self.graph = {}
+
     def add_edge(self, u, v):
-        self.graph[u][v] = True
-        self.graph[v][u] = True
+        if u in self.graph:
+            self.graph[u].add(v)
+        else:
+            self.graph[u] = set([v])
+        if v in self.graph:
+            self.graph[v].add(u)
+        else:
+            self.graph[v] = set([u])
