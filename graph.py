@@ -11,3 +11,9 @@ class Graph:
             self.graph[v].add(u)
         else:
             self.graph[v] = set([u])
+            
+    def adjacent_nodes(self, node):
+        outcome = []
+        for item in self.graph[node]:
+            outcome.append(item)
+        return outcome
