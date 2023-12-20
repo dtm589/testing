@@ -17,3 +17,14 @@ class Graph:
         for item in self.graph[node]:
             outcome.append(item)
         return outcome
+    
+    def add_node(self, u):
+        if u not in self.graph:
+            self.graph[u] = set()
+            
+    def unconnected_vertices(self):
+        outcome = []
+        for entry in self.graph:
+            if self.graph[entry] == set():
+                outcome.append(entry)
+        return outcome
