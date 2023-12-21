@@ -28,3 +28,16 @@ class Graph:
             if self.graph[entry] == set():
                 outcome.append(entry)
         return outcome
+    
+    def breadth_first_search(self, v):
+        visited = []
+        to_visit = []
+        to_visit.append(v)
+        while len(to_visit) >= 1:
+            place = to_visit.pop(0)
+            visited.append(place)
+            sorted_list = sorted(self.graph[place]) # how do i get the neighbors
+            for neigbor in sorted_list:
+                if neigbor not in visited and neigbor not in to_visit:
+                    to_visit.append(neigbor)
+        return visited
