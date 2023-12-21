@@ -52,3 +52,15 @@ func main() {
 func concat(s1 string, s2 string) string {
 	return s1 + s2
 }
+
+
+func main() {
+	sendsSoFar := 430
+	const sendsToAdd = 25
+	sendsSoFar = incrementSends(sendsSoFar, sendsToAdd)
+	fmt.Println("you've sent", sendsSoFar, "messages")
+}
+
+func incrementSends(sendsSoFar, sendsToAdd int) int {
+	return sendsSoFar + sendsToAdd
+}
