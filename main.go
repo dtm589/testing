@@ -91,3 +91,9 @@ func yearsUntilEvents(age int) (yearsUntilAdult, yearsUntilDrinking, yearsUntilC
 	}
 	return
 }
+
+// struct in Go is like a dictionary in Python or a object in JavaScript
+type messageToSend struct {
+	phoneNumber int
+	message string
+}
