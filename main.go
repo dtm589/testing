@@ -108,6 +108,17 @@ func canSendMessage(mToSend messageToSend) bool {
 	if mToSend.sender.name != "" && mToSend.sender.number != 0 && mToSend.recipient.name != "" && mToSend.recipient.number != 0{
 		return true
 	}
-	
 	return false
+}
+
+
+//embedded structs - the parent struct inhereits the properties of the embedded struct
+type sender struct {
+	rateLimit int
+	user
+}
+
+type user struct {
+	name   string
+	number int
 }
